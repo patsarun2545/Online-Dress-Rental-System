@@ -1,0 +1,105 @@
+/* Login box */
+.login-box {
+  width: 360px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  overflow: hidden;
+  margin: auto; /* กำหนดให้ margin อัตโนมัติ */
+  position: absolute;
+  top: 55%; /* เลื่อนลงมาที่กึ่งกลาง */
+  left: 50%; /* เลื่อนไปด้านขวาที่กึ่งกลาง */
+  transform: translate(-50%, -50%); /* ปรับให้ตรงกลางโดยสมบูรณ์ */
+}
+
+/* Card */
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+/* Card body */
+.login-card-body {
+  padding: 20px;
+  background-color: #fff;
+  
+}
+
+/* Text in login */
+.login-box-msg {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d4a373;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.input-group .form-control {
+  border: 2px solid #d4a373;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.input-group .form-control:focus {
+  border-color: #b28a63;
+  box-shadow: 0 0 5px rgba(210, 173, 113, 0.5);
+}
+
+/* Input group text */
+.input-group-text {
+  background-color: #d4a373;
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Row styling for alignment */
+.row {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; แก้ไม่ให้ สินค้าชิดซ้ายขวา*/ 
+}
+
+/* Button container */
+.col-4 {
+  text-align: center;
+}
+
+/* Sign In button styling */
+.btn-primary {
+  background: linear-gradient(135deg, #d4a373, #b28a63);
+  border: none;
+  border-radius: 30px; /* ทำให้โค้งมน */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b28a63, #9c7a52);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ Hover */
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* กลับมาที่เดิมเมื่อกด */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.4);
+}
+
+
+/* Adjust layout for small screens */
+@media (max-width: 576px) , (max-width: 768px) {
+  .login-box {
+    width: 90%;
+  }
+}

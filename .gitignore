@@ -1,0 +1,6 @@
+node_modules
+# Keep environment variables out of version control
+.env
+ecosystem.config.js
+pg_hba.conf
+postgresql.conf

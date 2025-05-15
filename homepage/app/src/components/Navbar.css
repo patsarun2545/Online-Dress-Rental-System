@@ -1,0 +1,269 @@
+/* ป้องกันเนื้อหาถูก Navbar ทับ */
+body {
+  padding-top: 100px; /* ปรับตามความสูงรวมของ Navbar และแถบหมวดหมู่ */
+  background: linear-gradient(135deg, #fff5e6, #ffd5d5);
+}
+
+/* General Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: #fff;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #000;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Search Bar */
+.search-bar .input-group-text {
+  font-size: 1rem;
+  background-color: #fff;
+  border: 2px solid #6c757d;
+  border-right: none;
+}
+
+.search-bar .form-control {
+  font-size: 1rem;
+  border: 2px solid #6c757d;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+}
+
+.search-bar .btn {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #6c757d;
+}
+
+.search-bar .btn i {
+  font-size: 1rem;
+}
+
+.list-group-item-action:hover {
+  background-color: #fff5e6;
+}
+
+
+/* Fixed Category Menu */
+.bg-light {
+  position: fixed;
+  top: 65px; /* แสดงถัดจาก Navbar */
+  left: 0;
+  width: 100%;
+  z-index: 1029;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.category-item {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  text-decoration: underline;
+}
+
+.text-secondary {
+  color: #6c757d !important;
+}
+
+/* ปรับ Dropdown ให้ดูเป็นมืออาชีพ */
+.dropdown-menu {
+  border: none;
+  border-radius: 8px; /* ทำขอบโค้งมน */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  font-size: 0.9rem; /* ปรับขนาดฟอนต์ */
+  padding: 10px 0; /* เพิ่ม Padding ด้านบนและล่าง */
+}
+
+.dropdown-item {
+  padding: 8px 16px; /* ปรับระยะห่างภายในแต่ละตัวเลือก */
+  color: #333; /* สีข้อความ */
+  transition: background-color 0.3s, color 0.3s; /* เอฟเฟกต์นุ่มนวล */
+}
+
+.dropdown-item:hover {
+  background-color: #fff5e6; /* เปลี่ยนพื้นหลังเมื่อ Hover */
+  color: #000; /* เปลี่ยนสีข้อความ */
+}
+
+.dropdown-item-text {
+  font-weight: 600; /* ทำให้ข้อความตัวหนา */
+  color: #555; /* สีข้อความที่เป็น Static */
+}
+
+/* ปรับ Dropdown Toggle */
+.dropdown-toggle {
+  color: #000;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  opacity: 0.8;
+}
+
+.category-item.active-category {
+  font-weight: bold; /* ข้อความตัวหนา */
+  text-decoration: underline; /* เส้นใต้ */
+}
+
+/* ปรับแถบหมวดหมู่สินค้าให้จัดเรียงและมี scroll */
+.bg-light {
+  position: fixed;
+  top: 65px; /* ตำแหน่งถัดจาก Navbar */
+  left: 0;
+  width: 100%;
+  z-index: 1029;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+
+  /* ใช้ Flexbox */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* เว้นระยะห่างระหว่างแต่ละหมวดหมู่ */
+
+  /* เพิ่ม Scrollbar */
+  overflow-x: auto; /* เพิ่ม scroll แนวนอน */
+  white-space: nowrap; /* ป้องกันข้อความยาวเกิน */
+}
+
+.category-item {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0; /* ป้องกันการบีบขนาด */
+}
+
+.category-item.active-category {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.bg-light::-webkit-scrollbar {
+  height: 5px; /* ความสูงของ scrollbar */
+}
+
+.bg-light::-webkit-scrollbar-thumb {
+  background: #9c7a52; /* สี scrollbar */
+  border-radius: 10px; /* มุมโค้ง */
+}
+
+.bg-light::-webkit-scrollbar-thumb:hover {
+  background: #9c7a52; /* สีเมื่อ hover */
+}
+
+
+/* ปรับ Navbar และ Search Bar สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 992px) , (max-width: 1023px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .search-bar .form-control {
+    font-size: 0.9rem;
+  }
+
+  .search-bar .input-group-text {
+    font-size: 0.9rem;
+  }
+
+  .bg-light {
+    top: 60px; /* ลดช่องว่างด้านบนให้เหมาะสม */
+    padding: 8px 0;
+  }
+
+  body {
+    padding-top: 80px; /* ลด padding ตามความสูงที่เล็กลง */
+  }
+}
+
+@media (max-width: 576px), (max-width: 768px) {
+  .navbar {
+    padding: 5px 5px; /* ลด Padding ให้เล็กลง */
+  }
+
+  .navbar-brand {
+    font-size: 1rem; /* ลดขนาดฟอนต์โลโก้ */
+  }
+
+  /* ปรับ Navbar Flexbox */
+  .navbar .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* ปรับ Search Bar */
+  .search-bar {
+    flex: 1;
+    margin-right: 5px; /* ลดช่องว่างด้านขวา */
+  }
+
+  .search-bar .form-control {
+    font-size: 0.7rem; /* ลดขนาดฟอนต์ */
+    padding: 3px; /* ลด Padding */
+  }
+
+  .search-bar .input-group-text {
+    font-size: 0.7rem; /* ลดขนาดฟอนต์ */
+    padding: 3px; /* ลด Padding */
+  }
+
+  .search-bar .btn {
+    font-size: 0.8rem; /* ลดขนาดฟอนต์ในปุ่ม */
+    padding: 3px 8px; /* ลด Padding ของปุ่ม */
+  }
+
+  /* ไอคอน */
+  .navbar .d-flex.align-items-center {
+    gap: 2px; /* ลดช่องว่างระหว่างไอคอน */
+  }
+
+  /* แถบหมวดหมู่ */
+  .bg-light {
+    top: 40px; /* ลดช่องว่างด้านบน */
+    padding: 3px 0; /* ลด Padding */
+  }
+
+  .category-item {
+    font-size: 0.8rem; /* ลดขนาดฟอนต์ของหมวดหมู่ */
+  }
+
+  /* ปรับ Body Padding */
+  body {
+    padding-top: 50px; /* ลดความสูงรวมของ Navbar และแถบหมวดหมู่ */
+  }
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    font-size: 0.8rem; /* ลดขนาดฟอนต์ใน Dropdown */
+    padding: 5px 0; /* ลด Padding ด้านใน */
+  }
+
+  .dropdown-item {
+    padding: 5px 10px; /* ลดระยะห่างภายในตัวเลือก */
+  }
+  
+  .text-secondary {
+    font-size: 0.8rem !important;
+  }
+  .bg-light {
+    top: 50px; /* ลดช่องว่างด้านบนให้เหมาะสม */
+    padding: 8px 0;
+  }
+}
+

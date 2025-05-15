@@ -1,0 +1,181 @@
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #faf3e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-left,
+  .cart-right {
+    flex: 1 1 50%; /* ให้ช่องใช้พื้นที่ครึ่งหนึ่ง */
+    max-width: calc(50% - 20px); /* ลดขอบช่องว่าง */
+  }  
+  
+  /* Section Header */
+  .cart-header h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #9c7a52;
+    margin-bottom: 20px;
+  }
+  
+  /* Product List Styles */
+  .product-row {
+    background-color: #fdf6ec;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-info {
+    font-size: 14px;
+    color: #5a4b3c;
+  }
+  
+  .product-name strong {
+    color: #7a5c4b;
+  }
+  
+  .product-price {
+    color: #9c7a52;
+  }
+  
+  .product-quantity {
+    color: #6c5a4b;
+  }
+  
+  /* Buttons */
+  button.btn {
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  
+  button.btn-danger {
+    background-color: #e57373;
+    border: none;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #d32f2f;
+  }
+  
+  button.btn-success {
+    background-color: #81c784;
+    border: none;
+  }
+  
+  button.btn-success:hover {
+    background-color: #388e3c;
+  }
+  
+  /* Total Price */
+  .total-price {
+    background-color: #fdf6ec;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .total-price h5 {
+    font-weight: bold;
+    color: #5a4b3c;
+  }
+  
+  /* Customer Info & Payment Section */
+  .customer-info,
+  .bank-info,
+  .transfer-info {
+    background-color: #fdf6ec;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-info h5,
+  .bank-info h5,
+  .transfer-info h5 {
+    color: #9c7a52;
+    font-weight: bold;
+  }
+  
+  .customer-info p,
+  .bank-info p,
+  .transfer-info label {
+    font-size: 14px;
+    color: #6c5a4b;
+  }
+  
+  /* Input Fields */
+  .form-control ,
+  .form-select {
+    border: 1px solid #e0c9a6;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-control:focus,
+  .form-select:focus
+  {
+    border-color: #9c7a52;
+    box-shadow: 0 0 5px rgba(156, 122, 82, 0.5);
+  }
+  
+  /* Footer Button */
+  .cart-footer button {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center; /* จัดตำแหน่งกึ่งกลางแนวนอน */
+    align-items: center;    /* จัดตำแหน่งกึ่งกลางแนวตั้ง */
+    padding: 10px;          /* เพิ่มช่องว่างด้านใน */
+    border: 1px solid #ced4da; /* เส้นขอบสีเทาอ่อน */
+    border-radius: 8px;     /* มุมมน */
+    background-color: #ffffff; /* พื้นหลังสีอ่อน */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+    max-width: 50%;
+  }
+  
+  
+  /* Responsive Adjustments */
+  @media (max-width: 576px) , (max-width: 768px) {
+    .cart-container {
+      flex-direction: column;
+      margin-top: 40px;
+    }
+  
+    .cart-left,
+    .cart-right {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+  
+    .cart-header h4 {
+      font-size: 20px;
+    }
+  
+    .product-info {
+      font-size: 12px;
+    }
+  
+    button.btn {
+      font-size: 10px;
+    }
+  
+    .total-price h5 {
+      font-size: 14px;
+    }
+  }
+  

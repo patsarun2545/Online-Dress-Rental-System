@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "RentalDays" ADD COLUMN     "hasShipping" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "shippingCost" DOUBLE PRECISION NOT NULL DEFAULT 0;

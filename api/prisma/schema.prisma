@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id     Int    @id @default(autoincrement())
+  name   String
+  user   String @unique()
+  pass   String
+  status String @default("use")
+}
+
+model Customer {
+  id              Int        @id @default(autoincrement())
+  name            String
+  email           String     @unique()
+  pass            String
+  phone           String?
+  address         String?
+  bankName        String? // ชื่อธนาคาร
+  bankAccountName String? // ชื่อบัญชีธนาคาร
+  bankAccountNo   String? // เลขบัญชีธนาคาร
+  status          String     @default("active") // active, inactive
+  BillSales       BillSale[]
+}
+
+model Product {
+  id             Int              @id @default(autoincrement())
+  name           String
+  detail         String?
+  cost           Int
+  price          Int
+  deposit        Int              @default(0) // Add this line
+  status         String           @default("use")
+  categoryId     Int?
+  Category       Category?        @relation(fields: [categoryId], references: [id])
+  BillSaleDetail BillSaleDetail[]
+  images         ProductImage[] // ความสัมพันธ์กับตารางภาพ
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  url       String
+  Product   Product @relation(fields: [productId], references: [id])
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  Products Product[]
+  status   String    @default("active") // สถานะ เช่น active, inactive
+}
+
+model BillSale {
+  id                  Int              @id @default(autoincrement())
+  Date                DateTime
+  Time                String
+  status              String           @default("wait") // wait, pay, send
+  customerId          Int
+  Customer            Customer         @relation(fields: [customerId], references: [id])
+  totalPrice          Int              @default(0) // ราคารวมของใบเสร็จ
+  totalDeposit        Int              @default(0) // Add this field
+  grandTotal          Int              @default(0) // Add this field
+  transferDate        DateTime? // วันที่โอนเงิน
+  transferTime        String? // เวลาโอนเงิน
+  transferAccountName String? // ชื่อบัญชีที่โอน
+  transferBankName    String? // ธนาคารที่โอน
+  returnStatus        String           @default("pending") // pending, approved, rejected
+  returnDate          DateTime? //จำนวนวันที่เช่าสินค้า
+  deliveryMethod      String           @default("pickup") // Add this field: pickup, delivery
+  shippingFee         Int              @default(0) // Add this field for shipping cost
+  Paymentimg          String? // รูปภาพสลิปโอนเงิน
+  Returnimg           String? // รูปภาพสินค้าที่คืน
+  shippingimg         String? // รูปภาพหลักฐานการจัดส่ง
+  BillSaleDetail      BillSaleDetail[]
+}
+
+model BillSaleDetail {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  billSaleId Int
+  Product    Product  @relation(fields: [productId], references: [id])
+  BillSale   BillSale @relation(fields: [billSaleId], references: [id])
+  cost       Int
+  price      Int
+  deposit    Int      @default(0) // Add this field
+}
+
+model RentalDays {
+  id          Int    @id @default(autoincrement())
+  days        Float // จำนวนวันที่เช่า เช่น 1, 2.7, 4.25
+  discount    Float  @default(0) // ส่วนลดในรูปแบบเปอร์เซ็นต์ เช่น 0.1 = 10%
+  description String // คำอธิบาย
+  shippingFee Float  @default(0) // ค่าจัดส่ง เช่น 50.5 บาท 
+  status      String @default("active") // สถานะ เช่น active, inactive
+}
+
+model Account {
+  id            Int      @id @default(autoincrement())
+  accountName   String
+  accountNumber String
+  bankName      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  status        String   @default("use")
+}

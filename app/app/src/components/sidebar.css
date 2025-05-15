@@ -1,0 +1,84 @@
+/* Sidebar General Style */
+.main-sidebar {
+  background-color: #000000; /* เปลี่ยนพื้นหลังเป็นสีเทาเข้ม */
+  color: #ffffff; /* เปลี่ยนข้อความเป็นสีขาว */
+  font-size: 14px;
+}
+
+.main-sidebar .brand-link {
+  background-color: #000000; /* เปลี่ยนพื้นหลังของโลโก้ */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 2px solid #ffffff30;
+}
+
+.main-sidebar .brand-link .brand-image {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.main-sidebar .sidebar {
+  padding: 0;
+}
+
+.main-sidebar .user-panel {
+  padding: 10px;
+  border-bottom: 2px solid #ffffff30;
+}
+
+.main-sidebar .user-panel .info {
+  margin-left: 10px;
+}
+
+.main-sidebar .user-panel .info a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.main-sidebar .user-panel .sign-out-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.main-sidebar nav {
+  margin-top: 20px;
+}
+
+.main-sidebar nav .nav-pills .nav-item .nav-link {
+  color: #ffffff;
+  background-color: transparent;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-sidebar nav .nav-pills .nav-item .nav-link:hover {
+  background-color: #636e72;
+  color: #ffffff;
+}
+
+.main-sidebar nav .nav-pills .nav-item .nav-link.active {
+  background-color: #636e72;
+  font-weight: bold;
+}
+
+.main-sidebar nav .nav-pills .nav-item .nav-header {
+  color: #b2bec3;
+  font-size: 12px;
+  margin: 10px 0 5px 15px;
+  text-transform: uppercase;
+}
+
+.main-sidebar nav .nav-pills .nav-item .nav-icon {
+  margin-right: 10px;
+}
+
+.main-sidebar nav .nav-pills .nav-item .badge {
+  float: right;
+}

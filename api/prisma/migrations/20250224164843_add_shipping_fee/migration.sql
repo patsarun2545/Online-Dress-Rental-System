@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "RentalDays" ADD COLUMN     "shippingFee" DOUBLE PRECISION NOT NULL DEFAULT 0;
